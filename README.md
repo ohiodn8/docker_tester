@@ -14,11 +14,8 @@ gem 'docker_tester'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
-Or install it yourself as:
-
-    $ gem install docker_tester
 
 ## Usage
 
