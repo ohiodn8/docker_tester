@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Odion Ohio"]
   spec.email         = ["ohiodn8@gmail.com"]
 
-  spec.summary       = "Ruby gem to check to see if docker is installed and if docker-api works"
-  spec.description   = "Ruby gem to check to see if docker is installed and if docker-api works"
+  spec.summary       = "Ruby gem to check to see if docker is installed and if docker-api works before starting the rails server"
+  spec.description   = "Ruby gem to check to see if docker is installed and if docker-api works before starting the rails server"
   spec.homepage      = "http://www.gitub.com/ohiodn8/docker_tester"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com/ohiodn8/docker_tester"
