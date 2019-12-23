@@ -8,7 +8,7 @@ module DockerTester
     if defined?(Rails::Server)
       ## Docker Api Check b4 Start-Up 
       config.after_initialize do
-        if OS.windows?
+        if Gem.win_platform?
         else    
           puts "*** Docker Version Check via docker-api gem ***"   
           docker_version = Docker.version.present?	
@@ -18,21 +18,24 @@ module DockerTester
 		  else
 		    print "Docker_URL: "
 		    puts Docker.url
-			puts "* * *"
-			puts "**Starting GlueBelt Git Server Container**"
-			image = Docker::Image.create('fromImage' => 'qii404/git-server:latest')
-			container = Docker::Container.create(
-			  'name' => 'gluebelt-git-server',
-			  'Image' => 'qii404/git-server:latest',
-			  'ExposedPorts' => { '22/tcp' => {} },
-			  'HostConfig' => {
-				'PortBindings' => {
-				  '22/tcp' => [{ 'HostPort' => '2022' }]
-				}
-			  }
-			)
-			container.start 
-			
+			if `docker ps --filter "name=gluebelt-git-server" --format "{{.Names}}"`.delete!("\n") == "gluebelt-git-server"
+				puts "**glubelt-git-server container already running**"
+			else
+				puts "* * *"
+				puts "**Starting GlueBelt Git Server Container**"
+				image = Docker::Image.create('fromImage' => 'qii404/git-server:latest')
+				container = Docker::Container.create(
+				  'name' => 'gluebelt-git-server',
+				  'Image' => 'qii404/git-server:latest',
+				  'ExposedPorts' => { '22/tcp' => {} },
+				  'HostConfig' => {
+					'PortBindings' => {
+					  '22/tcp' => [{ 'HostPort' => '2022' }]
+					}
+				  }
+				)
+				container.start 			
+            end			
 			
 		  end
 			
