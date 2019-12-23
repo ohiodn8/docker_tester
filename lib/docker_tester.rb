@@ -9,10 +9,13 @@ module DockerTester
       ## Docker Api Check b4 Start-Up 
       config.after_initialize do
         if Gem.win_platform?
-        else    
+        else    	
+docker_tester = `docker -v`
+if docker_tester["Docker version"]
           puts "*** Docker Version Check via docker-api gem ***"   
           docker_version = Docker.version.present?	
           if docker_version != true	
+		    Dir.chdir Rails.root
 			system "kill -INT $(cat tmp/pids/server.pid)"				
 			puts "*** DOCKER API NOT DETECTING DOCKER ***" 
 		  else
@@ -36,8 +39,10 @@ module DockerTester
 				)
 				container.start 			
             end			
-			
 		  end
+else
+          puts '**Docker Not Installed On this Server**'
+end		
 			
         end    
       end 
