@@ -10,13 +10,13 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Ruby gem to check to see if docker is installed and if docker-api works"
   spec.description   = "Ruby gem to check to see if docker is installed and if docker-api works"
-  spec.homepage      = "http://www.gitub.com/ohiodn8/docker-tester"
+  spec.homepage      = "http://www.gitub.com/ohiodn8/docker_tester"
 
-  spec.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com/ohiodn8/docker-tester"
+  spec.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com/ohiodn8/docker_tester"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://www.github.com/ohiodn8/docker-gluebelt"
-  spec.metadata["changelog_uri"] = "https://www.github.com/ohiodn8/docker-gluebelt/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://www.github.com/ohiodn8/docker_tester"
+  spec.metadata["changelog_uri"] = "https://www.github.com/ohiodn8/docker_tester/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
